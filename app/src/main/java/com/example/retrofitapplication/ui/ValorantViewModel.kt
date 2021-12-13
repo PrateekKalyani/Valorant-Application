@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.retrofitapplication.domain.ValorantUseCase
 import com.example.retrofitapplication.models.UiEvents
 import com.example.retrofitapplication.models.ValorantModel
+import com.example.retrofitapplication.models.ValorantResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +25,21 @@ constructor(
 
     fun getAgents() {
         viewModelScope.launch {
-            _agentsList.postValue(valorantUseCase.getAgents())
+
+            when(val response = valorantUseCase.getAgents()) {
+
+                is ValorantResponse.Success -> {
+                    _agentsList.postValue(UiEvents.Success(result = response.result))
+                }
+
+                is ValorantResponse.Error -> {
+                    _agentsList.postValue(UiEvents.Error(response.error))
+                }
+
+                is ValorantResponse.Loading -> {
+
+                }
+            }
         }
     }
 

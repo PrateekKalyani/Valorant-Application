@@ -19,13 +19,13 @@ class AbilityAdapter(
         fun bind(ability: Ability) {
 
             binding.run {
-                name.text = ability.displayName
-                description.text = ability.description
+                nameTextView.text = ability.displayName
+                descriptionTextView.text = ability.description
 
                 Glide.with(context)
                     .load(ability.image)
                     .error(R.drawable.ic_launcher_background)
-                    .into(image)
+                    .into(abilityImageView)
             }
         }
     }

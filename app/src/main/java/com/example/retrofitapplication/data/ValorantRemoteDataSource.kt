@@ -2,11 +2,13 @@ package com.example.retrofitapplication.data
 
 import com.example.retrofitapplication.models.UiEvents
 import com.example.retrofitapplication.models.ValorantModel
+import com.example.retrofitapplication.models.ValorantResponse
+import retrofit2.Response
 import javax.inject.Inject
 
 interface ValorantRemoteDataSource {
 
-    suspend fun getAgents() : UiEvents<List<ValorantModel>>
+    suspend fun getAgents() : ValorantResponse
 }
 
 class ValorantRemoteDataSourceImpl
@@ -15,20 +17,20 @@ constructor(
     private val valorantApiService: ValorantApiService
 ) : ValorantRemoteDataSource {
 
-    override suspend fun getAgents(): UiEvents<List<ValorantModel>> {
+    override suspend fun getAgents(): ValorantResponse {
 
         return try {
 
-            val response = valorantApiService.getNews()
+            val response = valorantApiService.getAgents()
 
             if(response.isSuccessful) {
-                UiEvents.Success(response.body()!!.agentsList)
+                ValorantResponse.Success(result = response.body()!!.agentsList)
             } else {
-                UiEvents.Error("Sever Down")
+                ValorantResponse.Error(error = "Something went wrong, please try again")
             }
 
         } catch (e : Exception) {
-            UiEvents.Error("Server error")
+            ValorantResponse.Error(error = "Unable to connect to the Server")
         }
     }
 }

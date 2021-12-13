@@ -22,12 +22,12 @@ class ValorantActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setRecyclerView()
-        setProductList()
+        setValorantRecyclerView()
+        setAgentList()
         viewModel.getAgents()
     }
 
-    private fun setRecyclerView() {
+    private fun setValorantRecyclerView() {
 
         binding.valorantRecyclerView.run {
             layoutManager = LinearLayoutManager(this@ValorantActivity)
@@ -40,7 +40,7 @@ class ValorantActivity : AppCompatActivity() {
         }
     }
 
-    private fun setProductList() {
+    private fun setAgentList() {
 
         viewModel.agentsList.observe(this, Observer {
 

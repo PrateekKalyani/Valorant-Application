@@ -20,7 +20,7 @@ class ValorantAdapter: RecyclerView.Adapter<ValorantAdapter.ValorantViewHolder>(
             binding.run {
                 agentName.text = valorantModel.name
                 developerName.text = "Developed By -: ${valorantModel.developerName}"
-                description.text = valorantModel.description
+                descriptionTextView.text = valorantModel.description
 
                 Glide.with(context)
                     .load(valorantModel.image)

@@ -3,11 +3,12 @@ package com.example.retrofitapplication.data
 import com.example.retrofitapplication.mapper.CacheMapper
 import com.example.retrofitapplication.models.UiEvents
 import com.example.retrofitapplication.models.ValorantModel
+import com.example.retrofitapplication.models.ValorantResponse
 import javax.inject.Inject
 
 interface ValorantRepository {
 
-    suspend fun getAgents(isConnected: Boolean) : UiEvents<List<ValorantModel>>
+    suspend fun getAgents(isConnected: Boolean) : ValorantResponse
 }
 
 class ValorantRepositoryImpl
@@ -18,15 +19,15 @@ constructor(
     private val cacheMapper: CacheMapper
 ) : ValorantRepository {
 
-    override suspend fun getAgents(isConnected: Boolean): UiEvents<List<ValorantModel>> {
+    override suspend fun getAgents(isConnected: Boolean): ValorantResponse {
 
         return if(isConnected) {
             val response = valorantRemoteDataSource.getAgents()
 
-            if(response is UiEvents.Success) {
+            if(response is ValorantResponse.Success) {
                 valorantCacheDataSource.saveAgents(
-                    cacheMapper.mapToEntityList(
-                        response.result
+                    agentsList = cacheMapper.mapToEntityList(
+                        domainModelList = response.result
                     )
                 )
             }
@@ -35,9 +36,9 @@ constructor(
             val response = valorantCacheDataSource.getAgents()
 
             if(response.isEmpty()) {
-                UiEvents.Error("Empty Cache Data")
+                ValorantResponse.Error(error = "Empty Cache Data")
             } else {
-                UiEvents.Success(cacheMapper.mapFromEntityList(response))
+                ValorantResponse.Success(result = cacheMapper.mapFromEntityList(response))
             }
         }
     }

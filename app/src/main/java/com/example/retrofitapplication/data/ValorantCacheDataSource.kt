@@ -25,6 +25,6 @@ constructor(
 
         if(agentsList.isEmpty())
             return
-        valorantDao.insertAgents(agentsList)
+        valorantDao.insertAgents(productList = agentsList)
     }
 }

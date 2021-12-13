@@ -2,7 +2,7 @@ package com.example.retrofitapplication.models
 
 import com.google.gson.annotations.SerializedName
 
-data class ValorantResponse(
+data class ValorantRemoteResponse(
     @SerializedName("status")
     val status: String,
     @SerializedName("data")

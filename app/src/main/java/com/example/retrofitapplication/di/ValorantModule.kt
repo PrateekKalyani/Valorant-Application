@@ -54,13 +54,13 @@ object ValorantModule {
     fun getValorantRepository(
         valorantRemoteDataSource: ValorantRemoteDataSource,
         valorantCacheDataSource: ValorantCacheDataSource,
-        chacheMapper: CacheMapper
+        cacheMapper: CacheMapper
     ) : ValorantRepository {
 
         return ValorantRepositoryImpl(
             valorantRemoteDataSource = valorantRemoteDataSource,
             valorantCacheDataSource = valorantCacheDataSource,
-            cacheMapper = chacheMapper
+            cacheMapper = cacheMapper
         )
     }
 

@@ -6,9 +6,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/activity_news.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/activity_valorant.xml" value="0.17325227963525835" />
-        <entry key="app/src/main/res/layout/single_ability_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/single_ability_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/single_product_item.xml" value="0.245018115942029" />
-        <entry key="app/src/main/res/layout/single_valorant_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/single_valorant_item.xml" value="0.1" />
       </map>
     </option>
   </component>
