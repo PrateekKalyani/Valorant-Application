@@ -18,14 +18,14 @@ class ValorantAdapter: RecyclerView.Adapter<ValorantAdapter.ValorantViewHolder>(
         private val context by lazy { binding.root.context }
         fun bind(valorantModel: ValorantModel) {
             binding.run {
-                agentName.text = valorantModel.name
-                developerName.text = "Developed By -: ${valorantModel.developerName}"
+                agentNameTextView.text = valorantModel.name
+                developerNameTextView.text = "Developed By -: ${valorantModel.developerName}"
                 descriptionTextView.text = valorantModel.description
 
                 Glide.with(context)
                     .load(valorantModel.image)
                     .error(R.drawable.ic_launcher_background)
-                    .into(binding.agentImage)
+                    .into(binding.agentIconImageView)
 
                 abilitiesRecyclerView.run {
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

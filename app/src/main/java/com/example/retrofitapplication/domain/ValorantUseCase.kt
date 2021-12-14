@@ -1,8 +1,6 @@
 package com.example.retrofitapplication.domain
 
 import com.example.retrofitapplication.data.ValorantRepository
-import com.example.retrofitapplication.models.UiEvents
-import com.example.retrofitapplication.models.ValorantModel
 import com.example.retrofitapplication.models.ValorantResponse
 import javax.inject.Inject
 

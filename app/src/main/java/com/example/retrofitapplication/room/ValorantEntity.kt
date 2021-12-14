@@ -3,9 +3,7 @@ package com.example.retrofitapplication.room
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 import com.example.retrofitapplication.models.Ability
-import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "ValorantTable")
 data class ValorantEntity(

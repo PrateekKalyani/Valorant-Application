@@ -1,8 +1,6 @@
 package com.example.retrofitapplication.data
 
 import com.example.retrofitapplication.mapper.CacheMapper
-import com.example.retrofitapplication.models.UiEvents
-import com.example.retrofitapplication.models.ValorantModel
 import com.example.retrofitapplication.models.ValorantResponse
 import javax.inject.Inject
 

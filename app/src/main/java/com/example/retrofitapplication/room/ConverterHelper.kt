@@ -1,11 +1,9 @@
 package com.example.retrofitapplication.room
 
-import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.example.retrofitapplication.models.Ability
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 
 class ConverterHelper {
 
