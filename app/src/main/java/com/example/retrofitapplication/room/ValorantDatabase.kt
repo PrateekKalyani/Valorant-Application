@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [ValorantEntity::class], version = 1)
+@Database(entities = [ValorantAgentEntity::class], version = 1)
 @TypeConverters(ConverterHelper::class)
 abstract class ValorantDatabase : RoomDatabase(){
 

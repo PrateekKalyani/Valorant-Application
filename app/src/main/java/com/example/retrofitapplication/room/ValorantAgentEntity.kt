@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.retrofitapplication.models.Ability
 
-@Entity(tableName = "ValorantTable")
-data class ValorantEntity(
+@Entity(tableName = "ValorantAgents")
+data class ValorantAgentEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name  = "id")
     val id: String,

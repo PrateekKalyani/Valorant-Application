@@ -1,7 +1,7 @@
 package com.example.retrofitapplication.mapper
 
-import com.example.retrofitapplication.models.ValorantModel
-import com.example.retrofitapplication.room.ValorantEntity
+import com.example.retrofitapplication.models.ValorantAgentModel
+import com.example.retrofitapplication.room.ValorantAgentEntity
 import javax.inject.Inject
 
 interface EntityMapper<Entity, DomainModel> {
@@ -17,35 +17,35 @@ interface EntityMapper<Entity, DomainModel> {
 
 class CacheMapper
 @Inject
-constructor() : EntityMapper<ValorantEntity, ValorantModel>{
-    override fun mapFromEntity(entity: ValorantEntity): ValorantModel {
-        return ValorantModel(
-            id = entity.id,
-            image = entity.image,
-            name = entity.name,
-            description = entity.description,
-            developerName = entity.developerName,
-            abilities = entity.abilities
+constructor() : EntityMapper<ValorantAgentEntity, ValorantAgentModel>{
+    override fun mapFromEntity(agentEntity: ValorantAgentEntity): ValorantAgentModel {
+        return ValorantAgentModel(
+            id = agentEntity.id,
+            image = agentEntity.image,
+            name = agentEntity.name,
+            description = agentEntity.description,
+            developerName = agentEntity.developerName,
+            abilities = agentEntity.abilities
         )
     }
 
-    override fun mapToEntity(domainModel: ValorantModel): ValorantEntity {
-        return ValorantEntity(
-            id = domainModel.id,
-            image = domainModel.image,
-            name = domainModel.name,
-            description = domainModel.description,
-            developerName = domainModel.developerName,
-            abilities = domainModel.abilities
+    override fun mapToEntity(domainAgentModel: ValorantAgentModel): ValorantAgentEntity {
+        return ValorantAgentEntity(
+            id = domainAgentModel.id,
+            image = domainAgentModel.image,
+            name = domainAgentModel.name,
+            description = domainAgentModel.description,
+            developerName = domainAgentModel.developerName,
+            abilities = domainAgentModel.abilities
         )
     }
 
-    override fun mapFromEntityList(entityList: List<ValorantEntity>): List<ValorantModel> {
-        return entityList.map { mapFromEntity(it) }
+    override fun mapFromEntityList(agentEntityList: List<ValorantAgentEntity>): List<ValorantAgentModel> {
+        return agentEntityList.map { mapFromEntity(it) }
     }
 
-    override fun mapToEntityList(domainModelList: List<ValorantModel>): List<ValorantEntity> {
-        return domainModelList.map { mapToEntity(it) }
+    override fun mapToEntityList(domainAgentModelList: List<ValorantAgentModel>): List<ValorantAgentEntity> {
+        return domainAgentModelList.map { mapToEntity(it) }
     }
 
 }

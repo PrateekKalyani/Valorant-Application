@@ -25,7 +25,7 @@ constructor(
             if(response is ValorantResponse.Success) {
                 valorantCacheDataSource.saveAgents(
                     agentList = cacheMapper.mapToEntityList(
-                        domainModelList = response.result
+                        domainAgentModelList = response.result
                     )
                 )
             }

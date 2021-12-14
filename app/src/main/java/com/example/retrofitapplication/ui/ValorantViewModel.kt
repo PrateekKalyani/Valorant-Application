@@ -6,8 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.retrofitapplication.domain.ValorantUseCase
 import com.example.retrofitapplication.models.UiEvents
-import com.example.retrofitapplication.models.ValorantModel
-import com.example.retrofitapplication.models.ValorantResponse
+import com.example.retrofitapplication.models.ValorantAgentModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,8 +18,8 @@ constructor(
     private val valorantUseCase: ValorantUseCase
 ) : ViewModel(){
 
-    private val _agentsList = MutableLiveData<UiEvents<List<ValorantModel>>>()
-    val agentsList : LiveData<UiEvents<List<ValorantModel>>>
+    private val _agentsList = MutableLiveData<UiEvents<List<ValorantAgentModel>>>()
+    val agentsList : LiveData<UiEvents<List<ValorantAgentModel>>>
     get() = _agentsList
 
     fun getAgents() {

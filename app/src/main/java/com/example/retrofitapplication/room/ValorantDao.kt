@@ -9,8 +9,8 @@ import androidx.room.Query
 interface ValorantDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAgents(productList : List<ValorantEntity>)
+    suspend fun insertAgents(productList : List<ValorantAgentEntity>)
 
-    @Query("SELECT * FROM ValorantTable")
-    suspend fun getAgents() : List<ValorantEntity>
+    @Query("SELECT * FROM ValorantAgents")
+    suspend fun getAgents() : List<ValorantAgentEntity>
 }

@@ -2,7 +2,7 @@ package com.example.retrofitapplication.domain
 
 import com.example.retrofitapplication.data.ValorantRepository
 import com.example.retrofitapplication.models.UiEvents
-import com.example.retrofitapplication.models.ValorantModel
+import com.example.retrofitapplication.models.ValorantAgentModel
 import com.example.retrofitapplication.models.ValorantResponse
 import javax.inject.Inject
 
@@ -13,7 +13,7 @@ constructor(
     private val util: com.example.retrofitapplication.util.Util
 ) {
 
-    suspend fun getAgents() : UiEvents<List<ValorantModel>> {
+    suspend fun getAgents() : UiEvents<List<ValorantAgentModel>> {
 
         return when(val response = valorantRepository.getAgents(util.checkForInternet())) {
 
