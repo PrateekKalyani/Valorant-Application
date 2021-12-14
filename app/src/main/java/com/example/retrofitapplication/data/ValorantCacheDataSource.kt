@@ -8,7 +8,7 @@ interface ValorantCacheDataSource {
 
     suspend fun getAgents() : List<ValorantEntity>
 
-    suspend fun saveAgents(agentsList : List<ValorantEntity>)
+    suspend fun saveAgents(agentList : List<ValorantEntity>)
 }
 
 class ValorantCacheDataSourceImpl
@@ -21,10 +21,10 @@ constructor(
         return valorantDao.getAgents()
     }
 
-    override suspend fun saveAgents(agentsList: List<ValorantEntity>) {
+    override suspend fun saveAgents(agentList: List<ValorantEntity>) {
 
-        if(agentsList.isEmpty())
+        if(agentList.isEmpty())
             return
-        valorantDao.insertAgents(productList = agentsList)
+        valorantDao.insertAgents(productList = agentList)
     }
 }
