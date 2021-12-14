@@ -25,21 +25,7 @@ constructor(
 
     fun getAgents() {
         viewModelScope.launch {
-
-            when(val response = valorantUseCase.getAgents()) {
-
-                is ValorantResponse.Success -> {
-                    _agentsList.postValue(UiEvents.Success(result = response.result))
-                }
-
-                is ValorantResponse.Error -> {
-                    _agentsList.postValue(UiEvents.Error(response.error))
-                }
-
-                is ValorantResponse.Loading -> {
-
-                }
-            }
+            _agentsList.postValue(valorantUseCase.getAgents())
         }
     }
 
